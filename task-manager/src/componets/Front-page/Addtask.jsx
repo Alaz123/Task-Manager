@@ -6,9 +6,11 @@ function Addtask() {
 			const response = await fetch(`http://localhost:4000/task/create`, {
 				method: "post",
 			});
-			const data = await response.text();
+			// console.log(response)
+			// const data = await response.text();
+
 			if (response.ok) {
-				window.location.href = "http://localhost:5173";
+				window.location.href = "/";
 			} else {
 				console.error("Error inserting task");
 			}
@@ -18,15 +20,12 @@ function Addtask() {
 		}
 	};
 
-	
-
 	return (
 		<form
 			className="task-form"
 			action="http://localhost:4000/task/create"
 			method="post"
 		>
-			
 			<h4>Task Manager</h4>
 			<div className="form-control">
 				<input
