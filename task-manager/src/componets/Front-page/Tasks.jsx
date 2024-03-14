@@ -7,7 +7,7 @@ function Tasks() {
 	useEffect(() => {
 		const fetchTasks = async () => {
 			try {
-				const response = await fetch("http://localhost:4000/task");
+				const response = await fetch("https://task-manager-server-p5i5.onrender.com/task");
 				const data = await response.json();
 				console.log(data.task);
 				setTasks(data.task);
@@ -20,7 +20,7 @@ function Tasks() {
 	}, []);
 
 	const handleDelete = (taskId) => {
-		fetch(`http://localhost:4000/task/${taskId}`, {
+		fetch(`https://task-manager-server-p5i5.onrender.com/task/${taskId}`, {
 			method: "DELETE",
 		})
 			.then(() => {

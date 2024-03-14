@@ -10,7 +10,7 @@ const Edittask = () => {
 	useEffect(() => {
 		const fetchTask = async () => {
 			try {
-				const response = await fetch(`http://localhost:4000/task/${id}`, {
+				const response = await fetch(`https://task-manager-server-p5i5.onrender.com/task/${id}`, {
 					method: "GET",
 				});
 				const data = await response.json();
@@ -28,7 +28,7 @@ const Edittask = () => {
 
 	const edit = async (taskId, updatedName, updatedCompleted, updatedTime) => {
 		try {
-			const response = await fetch(`http://localhost:4000/task/${taskId}`, {
+			const response = await fetch(`https://task-manager-server-p5i5.onrender.com/task/${taskId}`, {
 				method: "PATCH",
 				headers: {
 					"Content-Type": "application/json",
