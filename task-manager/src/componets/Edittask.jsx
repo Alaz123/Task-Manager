@@ -10,9 +10,12 @@ const Edittask = () => {
 	useEffect(() => {
 		const fetchTask = async () => {
 			try {
-				const response = await fetch(`https://task-manager-server-p5i5.onrender.com/task/${id}`, {
-					method: "GET",
-				});
+				const response = await fetch(
+					`https://task-manager-server-b2rh.onrender.com/task/${id}`,
+					{
+						method: "GET",
+					}
+				);
 				const data = await response.json();
 
 				setName(data[0].task_name);
@@ -28,17 +31,20 @@ const Edittask = () => {
 
 	const edit = async (taskId, updatedName, updatedCompleted, updatedTime) => {
 		try {
-			const response = await fetch(`https://task-manager-server-p5i5.onrender.com/task/${taskId}`, {
-				method: "PATCH",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({
-					name: updatedName,
-					completed: updatedCompleted,
-					time: updatedTime,
-				}),
-			});
+			const response = await fetch(
+				`https://task-manager-server-b2rh.onrender.com/task/${taskId}`,
+				{
+					method: "PATCH",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify({
+						name: updatedName,
+						completed: updatedCompleted,
+						time: updatedTime,
+					}),
+				}
+			);
 
 			if (response.ok) {
 				console.log("Task updated successfully");

@@ -3,7 +3,7 @@ import React from "react";
 function Addtask() {
 	const createTask = async () => {
 		try {
-			const response = await fetch(`https://task-manager-server-p5i5.onrender.com/task/create`, {
+			const response = await fetch(`https://task-manager-server-b2rh.onrender.com/task/create`, {
 				method: "post",
 			});
 			// console.log(response)
@@ -23,7 +23,7 @@ function Addtask() {
 	return (
 		<form
 			className="task-form"
-			action="https://task-manager-server-p5i5.onrender.com/task/create"
+			action="https://task-manager-server-b2rh.onrender.com/task/create"
 			method="post"
 		>
 			<h4>Task Manager</h4>
