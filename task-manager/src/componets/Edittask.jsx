@@ -56,6 +56,11 @@ const Edittask = () => {
 		}
 	};
 
+	const handleEdit = async (event) => {
+		event.preventDefault(); // Prevent form submission and page refresh
+		await edit(id, name, completed, time);
+	};
+
 	return (
 		<form className="single-task-form">
 			<h4>Edit Task</h4>
@@ -69,7 +74,6 @@ const Edittask = () => {
 					type="text"
 					name="name"
 					value={name}
-					// placeholder={name}
 					onChange={(e) => setName(e.target.value)}
 				/>
 			</div>
@@ -90,13 +94,12 @@ const Edittask = () => {
 					name="time"
 					value={time}
 					onChange={(e) => settime(e.target.value)}
-					// className="task-edit-completed"
 				/>
 			</div>
 			<button
 				type="submit"
 				className="block btn task-edit-btn"
-				onClick={() => edit(id, name, completed, time)}
+				onClick={handleEdit} // Use the updated handler
 			>
 				Edit
 			</button>
