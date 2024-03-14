@@ -5,6 +5,7 @@ const Edittask = () => {
 	const { id } = useParams();
 	const [name, setName] = useState("");
 	const [completed, setCompleted] = useState(false);
+	const [time, settime] = useState("");
 
 	useEffect(() => {
 		const fetchTask = async () => {
@@ -16,6 +17,7 @@ const Edittask = () => {
 
 				setName(data[0].task_name);
 				setCompleted(data[0].completed);
+				settime(data[0].time_zone);
 			} catch (error) {
 				console.error("Error fetching task:", error);
 			}
@@ -24,7 +26,7 @@ const Edittask = () => {
 		fetchTask();
 	}, [id]);
 
-	const edit = async (taskId, updatedName, updatedCompleted) => {
+	const edit = async (taskId, updatedName, updatedCompleted, updatedTime) => {
 		try {
 			const response = await fetch(`http://localhost:4000/task/${taskId}`, {
 				method: "PATCH",
@@ -34,6 +36,7 @@ const Edittask = () => {
 				body: JSON.stringify({
 					name: updatedName,
 					completed: updatedCompleted,
+					time: updatedTime,
 				}),
 			});
 
@@ -74,10 +77,20 @@ const Edittask = () => {
 					className="task-edit-completed"
 				/>
 			</div>
+			<div className="form-control">
+				<label htmlFor="time-zone">time_zone</label>
+				<input
+					type="datetime-local"
+					name="time"
+					value={time}
+					onChange={(e) => settime(e.target.value)}
+					// className="task-edit-completed"
+				/>
+			</div>
 			<button
 				type="submit"
 				className="block btn task-edit-btn"
-				onClick={() => edit(id, name, completed)}
+				onClick={() => edit(id, name, completed, time)}
 			>
 				Edit
 			</button>

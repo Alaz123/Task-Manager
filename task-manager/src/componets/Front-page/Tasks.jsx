@@ -43,6 +43,7 @@ function Tasks() {
 							<div className={`task-name ${task.completed ? "completed" : ""}`}>
 								{task.task_name}
 							</div>
+							<div className="time">{task.time_zone}</div>
 						</h5>
 						<div className="task-links">
 							<Link to={`/edittask/${task.id}`} className="edit-link">
@@ -55,6 +56,7 @@ function Tasks() {
 								onClick={() => handleDelete(task.id)}
 							>
 								<i className="fas fa-trash"></i>
+							
 							</button>
 						</div>
 					</div>

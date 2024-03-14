@@ -455,3 +455,9 @@ form > :last-child {
 	display: flex;
 	
 }
+.time{
+	font-size: 15px;
+	font-weight: bolder;
+	margin-top: 5.5px ;
+	margin-left: 100px;
+}
